@@ -55,13 +55,12 @@ public class Main {
         interestRate = 0.07;
         months = 0;
         int years = 9;
-
-        for (i = 1; i <= years * 2; i++) {
-            for (int j = 0; j < 6; j++) {
-                initialAmount += initialAmount * interestRate;
-                months++;
+        for (i = 1; i <= years * 12; i++) {
+            initialAmount += initialAmount * (interestRate / 12);
+            months++;
+            if (months % 6 == 0) {
+                System.out.println("Полгода " + (months / 6) + ", сумма накоплений равна " + initialAmount);
             }
-            System.out.println("Полгода " + i + ", сумма накоплений равна " + initialAmount);
         }
         System.out.println("задание 7");
         int firstFriday = 5;
